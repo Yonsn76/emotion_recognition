@@ -67,7 +67,7 @@ Detectar automáticamente estados emocionales como frustración, tristeza, enojo
 
 ### 🧠 **Modelos de IA**
 - **YOLOv8n-face**: Detección de rostros optimizada (6.2MB)
-  - Descargar: [https://github.com/derronqi/yolov8-face/releases/download/v0.0.0/yolov8n-face.pt](https://github.com/derronqi/yolov8-face/releases/download/v0.0.0/yolov8n-face.pt)
+  - Descargar: [https://drive.google.com/file/d/1ZD_CEsbo3p3_dd8eAtRfRxHDV44M0djK/view]
 - **DeepFace**: Análisis emocional avanzado con múltiples modelos pre-entrenados
 - **Pipeline personalizado**: 5 emociones principales + métricas de confianza
 
