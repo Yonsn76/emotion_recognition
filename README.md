@@ -50,24 +50,26 @@ Detectar automáticamente estados emocionales como frustración, tristeza, enojo
 
 ## Componentes del Sistema
 
-### 🖥️ **Frontend (emotion_front)**
-- **React 18 + Next.js 14** con TypeScript
-- **Material Design 3** para interfaz moderna
-- **WebSockets** para actualizaciones en tiempo real
-- **Chart.js** para visualización de datos
-- **Responsive design** para todos los dispositivos
+### 🖥️ **Frontend (frontend)**
+- **React 18** con TypeScript y Vite
+- **TailwindCSS** para diseño moderno y responsivo
+- **React Router DOM** para navegación
+- **Axios** para comunicación con la API
+- **Interfaz intuitiva** para monitoreo en tiempo real
 
 ### ⚙️ **Backend (emotion_api)**
 - **FastAPI** con Python 3.8+
-- **MongoDB** para almacenamiento de métricas
+- **MongoDB** con Motor para almacenamiento asíncrono
 - **OpenCV** para procesamiento de imágenes
-- **YOLO + Haar Cascade** para análisis emocional
-- **Motor** para operaciones asíncronas
+- **YOLOv8n-face** para detección de rostros (modelo específico)
+- **DeepFace** para análisis emocional avanzado
+- **WebSockets** para comunicación en tiempo real
 
 ### 🧠 **Modelos de IA**
-- **YOLO v5s**: Detección de rostros (14MB, optimizado para edge)
-- **Haar Cascade**: Clasificación de características faciales
-- **Pipeline personalizado**: 5 emociones principales + confianza
+- **YOLOv8n-face**: Detección de rostros optimizada (6.2MB)
+  - Descargar: [https://github.com/derronqi/yolov8-face/releases/download/v0.0.0/yolov8n-face.pt](https://github.com/derronqi/yolov8-face/releases/download/v0.0.0/yolov8n-face.pt)
+- **DeepFace**: Análisis emocional avanzado con múltiples modelos pre-entrenados
+- **Pipeline personalizado**: 5 emociones principales + métricas de confianza
 
 ## Emociones Detectadas
 
@@ -98,11 +100,6 @@ Detectar automáticamente estados emocionales como frustración, tristeza, enojo
 
 ### Instalación Rápida
 
-1. **Clonar el repositorio**
-```bash
-git clone <repository-url>
-cd Emociones_api
-```
 
 2. **Configurar Backend**
 ```bash
@@ -112,14 +109,16 @@ source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 cp env.example .env
 # Editar .env con sus configuraciones
+
+# Descargar modelo YOLOv8n-face para detección de rostros
+mkdir -p model_files
+wget https://github.com/derronqi/yolov8-face/releases/download/v0.0.0/yolov8n-face.pt -O model_files/yolov8n-face.pt
 ```
 
 3. **Configurar Frontend**
 ```bash
-cd emotion_front
+cd frontend
 npm install
-cp env.local.example .env.local
-# Editar .env.local con sus configuraciones
 ```
 
 4. **Iniciar MongoDB**
@@ -141,12 +140,12 @@ cd emotion_api
 python -m app.main
 
 # Terminal 2 - Frontend
-cd emotion_front
+cd frontend
 npm run dev
 ```
 
 6. **Acceder a la aplicación**
-- Frontend: http://localhost:3000
+- Frontend: http://localhost:5173 (Vite default)
 - API Docs: http://localhost:8000/docs
 
 ## Uso del Sistema
@@ -248,10 +247,9 @@ npm run dev
 ## Soporte y Contacto
 
 ### Documentación Técnica
-- [Manual Técnico Completo](manual.txt)
-- [Guía de Diseño Frontend](front_desing_manul.txt)
 - [API Documentation](emotion_api/README.md)
-- [Frontend Documentation](emotion_front/README.md)
+- [Requisitos del Sistema](emotion_api/requirements.txt)
+- [Dependencias del Frontend](frontend/package.json)
 
 ### Equipo de Desarrollo
 - **Institución**: SENATI - Servicio Nacional de Adiestramiento en Trabajo Industrial
